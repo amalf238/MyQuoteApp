@@ -1,4 +1,4 @@
- MyQuote
+## MyQuote
 
 MyQuote is a Ruby on Rails application designed to share the wisdom of history’s greatest thinkers. It allows users to browse recent philosophical quotes, search quotes by category, and contribute their own entries once registered. 
 Each quote can be associated with multiple categories and attributed to a philosopher. 
@@ -18,3 +18,11 @@ Each quote can be associated with multiple categories and attributed to a philos
 - Rails **7.0.8**
 - Bundler
 - SQLite3 (for local development)
+
+### Running Tests
+bin/rails test
+
+## Contributing
+- Fork the repository.
+- Create a new branch for your feature or fix.
+- Submit a pull request with a clear description of your changes.
