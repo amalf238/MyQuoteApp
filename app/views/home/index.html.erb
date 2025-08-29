@@ -1,0 +1,21 @@
+<br>
+<h1>Welcome to MyQuote</h1>
+<p>Begin Your Day with MyQuote - Where Wisdom Resides</p>
+<h3>Recently added quotes</h3>
+<hr />
+<% @quotes.each do |quote| %>
+  <div class="card bg-body-tertiary" style="margin-bottom:10px">
+    <div class="card-body">
+      <h4 class="card-title">
+        <% quote.categories.each_with_index do |category, index| %>
+          <%= category.categoryName %><%= ", " unless index == quote.categories.size - 1 %>
+        <% end %>
+      </h4>
+      <p class="card-text">
+        <%= quote.quoteText %>
+        <br />
+        [<a href="/quotes/<%= quote.id %>">Read full quote</a>]
+      </p>
+    </div>
+  </div>
+<% end %>

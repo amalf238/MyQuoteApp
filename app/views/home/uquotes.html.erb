@@ -1,0 +1,18 @@
+<p></p>
+<h3><%= session[:fname]%>'s Quotes</h3>
+<hr />
+<% @quotes.each do |quote| %>
+  <div class="card bg-body-tertiary" style="margin-bottom:10px">
+    <div class="card-body">
+      <% if quote.categories.any? %>
+        <h4 class="card-title">
+          <% category_names = quote.categories.map(&:categoryName).join(', ') %>
+          <%= category_names %>
+        </h4>
+      <% else %>
+        <h4 class="card-title">Uncategorized</h4>
+      <% end %>
+      <p class="card-text"><%= quote.quoteText %><br />[<a href="/quotes/<%= quote.id %>">Read full quote</a>]</p>
+    </div>
+  </div>
+<% end %>

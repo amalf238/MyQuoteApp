@@ -1,0 +1,33 @@
+<div id="<%= dom_id quote %>">
+  
+  <p>
+    <strong>Quote Text:</strong>
+    <%= quote.quoteText %>
+  </p>
+
+  <p>
+    <strong>Publication Year:</strong>
+    <%= quote.publicationYear %>
+  </p>
+
+  <p>
+    <strong>Comment:</strong>
+    <%= quote.comment %>
+  </p>
+
+  <p>
+    <strong>Quote Is Public:</strong>
+    <%= quote.isPublic ? 'Yes' : 'No'%>
+  </p>
+
+  <p>
+    <strong>This Quote was added by the User:</strong>
+    <%= quote.user.full_name%>
+  </p>
+
+  <p>
+    <strong>Philosopher:</strong>
+    <%= quote.philosopher.full_name %>
+  </p>
+
+</div>

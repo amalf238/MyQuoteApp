@@ -1,0 +1,10 @@
+<%# This is the standard user landing page view %>
+<p style="color: green"><%= notice %></p>
+
+<%# Displaying the first name of the user from the session along with the page title %>
+<p>Hello <%= session[:fname] %></p>
+<h3>Standard User Landing Page</h3>
+<p>This is where general messages to the account holder would go</p>
+
+<%# The button below takes the logged-in user to the form to edit their personal details %>
+<%= link_to "Edit your account details", edit_user_path(session[:user_id]), class: 'btn btn-primary mt-3' %>

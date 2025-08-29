@@ -1,0 +1,9 @@
+<p style="color: green"><%= notice %></p>
+<%= render @philosopher %>
+
+<div>
+  <%= link_to "Edit this philosopher", edit_philosopher_path(@philosopher), class: 'btn btn-primary' %>
+  <%= link_to "Back to philosophers", philosophers_path, class: 'btn btn-secondary' %>
+
+  <%= button_to "Delete Philosopher", @philosopher, method: :delete, class: 'btn btn-danger mt-2'%>
+</div>

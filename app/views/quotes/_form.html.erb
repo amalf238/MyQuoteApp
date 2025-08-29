@@ -1,0 +1,82 @@
+<%= form_with(model: @quote, local: true) do |form| %>
+  <!-- Display errors related to the Quote and its nested QuoteCategories -->
+  <% if @quote.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+        <% @quote.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Hidden field for the user_id -->
+  <%= form.hidden_field :user_id, value: current_user.id %>
+
+  <!-- Quote text form field with Bootstrap styling -->
+  <div class="form-group" style="padding-bottom: 10px;">
+    <%= form.text_area :quoteText, placeholder: 'Quote Text', class: 'form-control' %>
+  </div>
+
+  <!-- Adding a dropdown list of philosophers saved in the system to add to the quote -->
+  <div class="form-group" style="padding-bottom: 10px;"> 
+    <%= form.collection_select :philosopher_id, @philosophers, :id, :full_name, { prompt: "Select a Philosopher" }, { class: "form-control" } %>
+  </div>
+
+  <!-- PublicationYear form field with Bootstrap styling -->
+  <div class="form-group" style="padding-bottom: 10px;">
+    <%= form.text_field :publicationYear, placeholder: 'Publication Year', class: 'form-control' %>
+  </div>
+
+  <!-- Comment form field with Bootstrap styling -->
+  <div class="form-group" style="padding-bottom: 10px;">
+    <%= form.text_area :comment, placeholder: 'Comment', class: 'form-control' %>
+  </div>
+
+  <!-- Quote visibility setting form check box with Bootstrap styling -->
+  <div class="form-check" style="padding-bottom: 10px;">
+    <%= form.label :isPublic do %>
+      Public
+      <%= form.check_box :isPublic, class: "form-check-input" %>
+    <% end %>
+  </div>
+
+  <!-- Container for the quote's categories -->
+  <div id="categories-container">
+    <!-- Looping through each of the quote's categories -->
+    <%= form.fields_for :quote_categories do |category_form| %>
+      <div class="category-field row mb-2">
+        <div class="col-auto">
+          <!-- Dropdown list for selecting a category -->
+          <%= category_form.label :category_id, "Category", class: "form-label d-inline-block me-2" %>
+          <%= category_form.select :category_id, Category.all.collect { |cat| [cat.categoryName, cat.id] }, { include_blank: true }, class: "form-control d-inline-block" %>
+        </div>
+        <div class="col-auto align-self-end">
+          <!-- Link to remove the category row -->
+          <%= link_to '[-] Remove this category', '#', class: 'remove-category', style: "color: red; text-decoration: none;" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mt-3">
+    <!-- Submit button for the form -->
+    <%= form.submit 'Create Quote', class: 'btn btn-primary btn-lg' %>
+  </div>
+<% end %>
+
+
+<script>
+  // Script to handle dynamic removal of categories
+  document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('click', function(e) {
+      if (e.target && e.target.classList.contains('remove-category')) {
+        e.preventDefault();
+        const categoryFields = document.querySelectorAll('.category-field');
+        if (categoryFields.length > 1) {
+          e.target.closest('.category-field').remove();
+        }
+      }
+    });
+  });
+</script>

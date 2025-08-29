@@ -1,0 +1,8 @@
+<h1>Editing philosopher</h1>
+
+<%= render "form", philosopher: @philosopher %>
+
+<div>
+  <%= link_to "Show this philosopher", @philosopher, class: 'btn btn-secondary mt-3'%>
+  <%= link_to "Back to philosophers", philosophers_path, class: 'btn btn-secondary mt-3' %>
+</div>

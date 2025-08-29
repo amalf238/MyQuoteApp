@@ -1,0 +1,21 @@
+<div style="padding-top: 10px;">
+<%# Adjust the views heading according to which role (user or admin) is accessing it %>
+<% if logged_in? && is_administrator? %>
+  <h3>Update User Details</h3>
+  <% else %>
+  <h3>Update Your Details</h3>
+  <% end %>
+</div>
+
+<%= render "form", user: @user %>
+<%# To make sure that only the administrator can see the links below %>
+<% if logged_in? && is_administrator? %>
+<div style="padding-top: 10px;">
+<div>
+  <%# Link to view the updated details of the edited user %>
+  <%= link_to "Show this user", @user, class: 'btn btn-secondary mt-2' %>
+  <%# Link to manage users main page %>
+  <%= link_to "Back to users", users_path, class: 'btn btn-secondary mt-2' %>
+</div>
+</div>
+<% end %>

@@ -1,0 +1,42 @@
+<%= form_with(model: @philosopher, local: true) do |form| %>
+  <%# Display errors related to the Philosophers %>
+  <% if @philosopher.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+        <% @philosopher.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%#-- Philosopher First Name form field with Bootstrap styling %>
+  <div class="form-group" style="padding-bottom: 10px;">
+    <%= form.text_field :fname, placeholder: 'First Name', class: 'form-control' %>
+  </div>
+
+  <%#-- Philosopher Last Name form field with Bootstrap styling %>
+  <div class="form-group" style="padding-bottom: 10px;">
+    <%= form.text_field :lname, placeholder: 'Last Name', class: 'form-control' %>
+  </div>
+
+  <%#-- Philosopher Birth Year form field with Bootstrap styling %>
+  <div class="form-group" style="padding-bottom: 10px;">
+    <%= form.number_field :birthYear, placeholder: 'Birth Year', class: 'form-control' %>
+  </div>
+
+  <%#-- Philosopher Death Year form field with Bootstrap styling %>
+  <div class="form-group" style="padding-bottom: 10px;">
+    <%= form.number_field :deathYear, placeholder: 'Death Year', class: 'form-control' %>
+  </div>
+
+  <%#-- Philosopher Biography form field with Bootstrap styling %>
+  <div class="form-group" style="padding-bottom: 10px;">
+    <%= form.text_area :biography, placeholder: 'Biography', class: 'form-control' %>
+  </div>
+
+  <div class="mt-3">
+  <%# Submit button for the form %>
+    <%= form.submit 'Create Philosopher', class: 'btn btn-primary btn-lg' %>
+  </div>
+<% end %>
