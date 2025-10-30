@@ -43,13 +43,24 @@ MyQuote is a comprehensive quote management system built with Ruby on Rails 7. T
 ---
 
 ## Getting Started
-
 ### Prerequisites
 
 You only need **Docker** and **Docker Compose** installed on your machine to run this application.
 
 - **Docker Desktop** (Windows/Mac): [Download here](https://www.docker.com/products/docker-desktop)
 - **Docker Engine** (Linux): [Install guide](https://docs.docker.com/engine/install/)
+
+---
+
+### User Account Info
+The account info has been shared below to access the demo application.
+
+- **ADMIN USER** (John Jones) Login Info: [ Email: admin@myquotes.com | Password: admin123 ]
+- Standard User1 (Vincent Brown) Login Info: [ Email: vinceb@myemail.com | Password: vince123 ]
+- Standard User2 (Amal Fernando) Login Info: [ Email: amal@gmail.com | Password: abc123 ]
+- Standard User3 (Sansannah Aaron) Login Info: [ Email: sunny@gmail.com | Password: abc123 ]
+
+---
 
 ### Installation & Running with Docker
 
